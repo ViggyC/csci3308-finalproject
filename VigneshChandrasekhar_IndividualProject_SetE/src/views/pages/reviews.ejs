@@ -1,0 +1,65 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+
+<div class="container-fluid" style="padding: 2%; ">
+    <div class="jumbotron">
+        <h1  style="text-align: center;"  class="display-4">Meal Reviews</h1>
+        <p style="text-align: center;"  class="lead">Enter a meal name to find its review</p>
+      </div>
+    <form  action='/filter' method='GET'>
+      <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-5">
+          <input class="form-control" type="text" name="mealName" placeholder="Enter Meal Name">
+        </div>
+        <div class="col-1">
+          <button class="btn  btn-primary" type="submit" name="filter" >Filter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+<div class="container">
+
+    
+
+<table style="width:90%; " class="table table-bordered" id="stats_table">
+    <tbody>
+    <tr>
+        <th class="align-bottom" rowspan="1">Meal Name</th>
+        <th class="align-bottom"rowspan="1">Review</th>
+        <th class="text-center" rowspan="1">Date</th>
+       
+    </tr>
+    <br>
+   
+    <!-- TODO: Iterate over the Football_table data here 
+                1. Display the information for each row (date, name, home score, visitor score)
+                2. Determine who the winner is and display it in the final column
+                If you're not sure how the logic should work here, review the code you add to the client-side javascript
+                that ran onload for Lab 5.  We are doing the same kind of operations we had in Lab 5, but we are instead having
+                everything handled via server-side scriptes
+    -->
+    <%
+                for (var i = 0; i < data.length; i++)
+                { %>
+                    <tr>
+                        <td><%- data[i].meal_name %></td>
+                        <td><%- data[i].review%></td>
+                        <td><%- data[i].review_date%></td>
+                 
+                       
+                    </tr>
+                <% } %>
+            </tbody>
+</table>
+</div>
+<br>
+<table class="table text-center">
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,167 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+<!--Nav Bar-->
+
+<main>
+  <div class="" style="background-color: #303030	;">
+    <div class="container-fluid" style="padding: 2%; ">
+      <form class="" action="/" method="post">
+        <div class="row">
+          <div class="col-3">
+
+          </div>
+          <div class="col-5">
+            <input class="form-control" type="text" name="meal" placeholder="Enter Meal Name">
+          </div>
+          <div class="col-1">
+            <input class="btn btn-light" type="submit" name="Submit" value = "Submit"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container-lg" style="margin-top: 2%;">
+   
+    <% if(error){ %>
+      <div class="alert alert-danger"><%-message%></div>
+    
+    <%}else if(items){ 
+
+      var source= source;
+      var youtube = youtube;
+      
+      if(mealTags===null){
+      mealTags = '-';
+      }
+     
+    %>
+
+     
+
+      <div class="row">
+        <img src="<%-mealImage%>" alt="" style="width:400px; height:400px">
+        <div class="col">
+        <div>
+          <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><%-mealName%></h1>
+          <h4 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Instructions</h3>
+          <div>
+            <br>
+            <p><%-mealInstructions%></p>
+          </div>
+          <h6 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Tags</h6>
+          <div>
+          
+            <p><%-mealTags%></p>
+          </div>
+          <div>
+
+            <% if(source===''){ %>
+               
+                    <a target="blank" href="" class="btn btn-primary" disabled>Link Unavailable</a>
+               
+                
+                <%}else{  %>
+
+                
+                    <a target="blank" href="<%- source %>" class="btn btn-primary" disabled>View Source Website</a>
+              
+                  <%}
+                
+                %>
+            
+            
+                <% if(youtube===''){ %>
+             
+                    <a target="blank" href="" class="btn btn-primary">Youtube link Unavailable</a>
+              
+                
+                <%}else{  %>
+
+              
+                    <a target="blank" href="<%- youtube %>" class="btn btn-primary" disabled>Watch on Youtube</a>
+             
+                  <%}
+                
+                %>
+            
+
+          </div>
+          <div>
+            <br>
+           
+              <!-- modal here -->
+              <!-- form in modal -->
+              <div >
+                <a href="#myModal" class="btn btn-primary" data-toggle="modal" >Add a review</a>
+              </div>
+            
+              <!-- Modal HTML -->
+              <div id="myModal" class="modal fade">
+                <div class="modal-dialog modal-login">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="avatar">
+                        <img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+                      </div>
+                      <h4 class="modal-title">Add Review</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="/reviews" method='POST'>
+                      <div class="form-group">
+                        <label for="mealName">Meal Name</label>      
+                                       
+                      </div>
+                      <div class="form-group">
+                        <input style="width:200px;"  type="text" id="country" name="mealName" value="<%-mealName%>" readonly><br><br>
+                      </div>
+                      <div class="form-group">
+                        <label style="text-align: center;" for="review">Enter your review</label>                  
+                      </div>
+                      <div class="form-group">
+                        <textarea name="review" id="" cols="52" rows="10"></textarea>
+                      </div>
+                     
+                      <div class="form-group">
+                        <button type="submit" id="my_submit_button" class="btn btn-primary btn-block login-btn" >Submit</button>
+                      </div>
+                    </form>
+                    </div>
+                  
+                  </div>
+                </div>
+              </div>
+           
+        
+          </div>
+        </div>
+        
+      </div>
+
+      </div>
+
+     
+     
+       
+      
+    
+        
+    <% } %>
+     
+
+   
+  </div>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+</main>
+
+<%- include('../partials/footer') %>
