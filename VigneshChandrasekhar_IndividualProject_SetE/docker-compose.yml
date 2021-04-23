@@ -50,7 +50,7 @@ services:
       - ./:/home/node/app                       # Binds the current directory (containing our source code) into the image,
                                                 #  so that changes made to the source code on the host
                                                 #  are reflected witin the container.
-    command: "npm start"                        # This is a semi-hack for this lab that runs both npm install
+    command: "npm run testandrun"               # This is a semi-hack for this lab that runs both npm install
                                                 # and node index.js (see the prestart command in package.json)
 
 # This defines our volume(s), which will perist throughout startups.
