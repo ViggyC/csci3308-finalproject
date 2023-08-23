@@ -59,3 +59,5 @@ services:
 # be extra sure you've made a stable backup somewhere.
 volumes:
   reviews-db: {}
+
+#fly pg connect -a mealreview-db -d mealreview
